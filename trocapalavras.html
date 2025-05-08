@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Troca Palavras Pokémon</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/estilo.css">
+    <style>
+
+        
+        .frases-container {
+            margin: 30px 0;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .frase {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+        
+        .frase strong {
+            color: #e60012;
+            background-color: #ffcb05;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        #palavra {
+            padding: 10px;
+            font-size: 1.1em;
+            width: 200px;
+            border: 2px solid #2c72b8;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #ffcb05;
+            color: #2c3e50;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background-color: #ffde59;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="IMGs/logo.png" alt="Pokémon Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="jogodaforca.html">Jogo da Forca</a></li>
+                <li><a href="jogodavelha.html">Jogo da Velha</a></li>
+                <li><a href="#">Jogo do Troca Palavras</a></li>
+                <li><a href="qualeessepokemon.html">Qual é esse pokémon?</a></li>
+            </ul>
+        </nav>
+        
+    <a href="seleçãodepersonagens.html" id="profile-link">
+        <img id="profile-icon" src="IMGs/perfil.png" alt="Perfil">
+    </a>
+    </header>
+
+    <div class="pokemon-container">
+        <h1>Bem-vindo ao Jogo do Troca Palavras Pokémon!</h1>
+        <h4>Troque uma palavra dos títulos Pokémon e veja o que acontece</h4>
+        
+        <div class="frases-container">
+            <div class="frase">Pokémon: <strong>Detetive</strong> Pikachu</div>
+            <div class="frase">Pokémon <strong>Índigo</strong>: A Série</div>
+            <div class="frase">Pokémon: <strong>Jirachi</strong> - O Fazedor de Desejos</div>
+            <div class="frase">Pokémon: O <strong>Filme</strong></div>
+            <div class="frase">Pokémon: <strong>Mewtwo</strong> Contra-Ataca</div>
+        </div>
+        
+        <div>
+            <input type="text" id="palavra" placeholder="Digite uma palavra"> 
+            <button onclick="trocaPalavra()">Trocar</button>
+            <button onclick="resetar()">Resetar</button>
+        </div>
+    </div>
+    
+    
+    <footer>
+        <img src="IMGs/logo-footer.png" alt=""> 
+        <div class="sobrenos">
+            <h4>Sobre nós</h4>
+            <p>Este é um fan site criado por fãs, para fãs de Pokémon! Aqui você encontra jogos temáticos e divertidos inspirados no universo Pokémon, como o Jogo da Forca, Quem é Esse Pokémon?, Jogo da Velha e o Troca Palavras.</p>
+        </div>
+
+        <div class="redessociais">
+            <h4>Redes Sociais</h4>
+            <div class="redesocial"><img src="IMGs/facebook.png" alt=""><p>Facebook</p></div> <br>
+            <div class="redesocial"><img src="IMGs/tiktok.png" alt=""><p>TikTok</p></div><br>
+            <div class="redesocial"><img src="IMGs/instagram.png" alt=""> <p>Instagram</p></div>
+        </div>
+    </footer>
+
+    <script src="Scripts/perfil.js"></script>
+    <script>
+        // títulos originais 
+        const titulosOriginais = [
+            "Pokémon: Detetive Pikachu",
+            "Pokémon Índigo: A Série",
+            "Pokémon: Jirachi - O Fazedor de Desejos",
+            "Pokémon: O Filme",
+            "Pokémon: Mewtwo Contra-Ataca"
+        ];
+        
+        // substituídas
+        const palavrasParaTrocar = ["Detetive", "Índigo", "Jirachi", "Filme", "Mewtwo"];
+        
+        function trocaPalavra() {
+            var palavraDigitada = document.getElementById("palavra").value.trim();
+            
+            if (palavraDigitada === "") {
+                alert("Por favor, digite uma palavra!");
+                return;
+            }
+            
+            // Substitui todas as palavras destacadas
+            var palavras = document.getElementsByTagName("strong");
+            for (var i = 0; i < palavras.length; i++) {
+                palavras[i].textContent = palavraDigitada;
+            }
+            
+            // Limpa o campo de input
+            document.getElementById("palavra").value = "";
+        }
+        
+        function resetar() {
+            // Restaura os títulos originais
+            var frases = document.getElementsByClassName("frase");
+            for (var i = 0; i < frases.length; i++) {
+                // Recria o HTML com a palavra original destacada
+                frases[i].innerHTML = titulosOriginais[i].replace(
+                    palavrasParaTrocar[i], 
+                    `<strong>${palavrasParaTrocar[i]}</strong>`
+                );
+            }
+        }
+    </script>
+</body>
+</html>

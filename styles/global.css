@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    padding: 20px;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+header img.logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 15px;
+}
+
+header nav {
+    margin-top: 15px;
+}
+
+header ul li{
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+header ul li a{
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-decoration: none;
+    color: #fff;
+}
+
+header ul li a:hover {
+    color: #ffcc00;
+}
+
+header img.perfil {
+    height: 40px;
+    width: auto;
+    margin-top: 15px;
+}
+
+
+/* FOOTER */
+footer {
+    background-color: black;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    align-items: center;
+}
+
+footer img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.sobrenos {
+    padding: 0 20px;
+    text-align: center;
+    max-width: 500px;
+}
+
+.sobrenos h4 {
+    color: #ffcc00;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.redessociais {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.redessociais h4 {
+    color: #ffcc00;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.redesocial {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.redesocial:hover p {
+    color: #ffcc00;
+}
+
+.redesocial img {
+    width: 28px;
+    height: 28px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 40px;
+    }
+
+    header img.logo {
+        margin-bottom: 0;
+    }
+
+    header img.perfil {
+        margin-top: 0;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .sobrenos {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    header ul li {
+        display: block;
+        padding: 8px 0;
+    }
+}
+
+
+/* Ícone de perfil */
+#profile-link {
+    order: 2;
+    margin-left: 0;
+}
+
+#profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffcb05;
+    background-color: white;
+    padding: 2px;
+    transition: all 0.3s ease;
+}
+
+#profile-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(255, 203, 5, 0.7);
+}

@@ -1,0 +1,251 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffcc00;
+    text-align: center;
+
+}
+
+.pokemon-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+    border: 5px solid #ffcc00;
+}
+
+h1 {
+    color: #ff3333;
+    text-shadow: 3px 3px #3b4cca;
+    font-size: 2.5em;
+}
+
+#jogo {
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 3px solid #3b4cca;
+    display: inline-block;
+}
+
+.trainers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Estilo dos placeholders dos treinadores */
+.trainer-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    color: #3b4cca;
+    text-shadow: 1px 1px #ffcc00;
+}
+
+/* Remove estilos antigos de imagens */
+.trainer img {
+    display: none !important;
+}
+
+.linha {
+    height: 150px;
+    display: flex;
+}
+
+.casa {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #3b4cca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s;
+}
+
+.casa:hover {
+    background-color: rgba(255, 204, 0, 0.3);
+    cursor: pointer;
+}
+
+.casa img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    image-rendering: pixelated; /* Mantém o estilo pixel art */
+}
+
+#resultado {
+    margin-top: 20px;
+    background-color: rgba(59, 76, 202, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #ffcc00;
+}
+
+#resposta {
+    font-size: 1.5em;
+    color: #ffcc00;
+    text-shadow: 2px 2px #3b4cca;
+}
+
+.pokeball-btn {
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.pokeball-btn:hover {
+    transform: scale(1.1);
+}
+
+.pokeball-btn img {
+    width: 50px;
+    height: 50px;
+    image-rendering: pixelated;
+}
+
+.score {
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.velha {
+    color: #ffffff;
+    font-size: 1em;
+}
+
+/* Estilo do Pikachu como "O" */
+.pikachu-o {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #FFCC00;
+    background-color: transparent;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+}
+
+/* Detalhe interno do círculo */
+.pikachu-o::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px dashed #FFCC00;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+}
+
+/* Ícone de raio */
+.pikachu-o::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png') no-repeat center center;
+    background-size: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 2px #ffcc00);
+}
+
+/* Pikachu como bolinha (O) */
+.pikachu-o {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #FFCC00;
+    background-color: transparent;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #FFCC00;
+}
+
+/* Mini Pikachu dentro do círculo */
+.pikachu-o img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated;
+}
+
+/* Charmander como X (Xis) */
+.charmander-x {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* X pontilhado */
+.charmander-x::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    background: 
+        linear-gradient(to bottom right, 
+            transparent 45%, 
+            #FF6A00 45%, 
+            #FF6A00 55%, 
+            transparent 55%),
+        linear-gradient(to top right, 
+            transparent 45%, 
+            #FF6A00 45%, 
+            #FF6A00 55%, 
+            transparent 55%);
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+/* Foguinho em cima */
+.charmander-x::after {
+    content: "🔥";
+    position: absolute;
+    font-size: 20px;
+    color: #FF6A00;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 2px #FF3300);
+}
+
+/* Charmander centralizado */
+.charmander-x img {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated;
+}
