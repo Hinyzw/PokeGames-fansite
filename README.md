@@ -1,1 +1,1 @@
-https://hinyzw.github.io/PokeGames-fansite-/
+https://hinyzw.github.io/PokeGames-fansite/
