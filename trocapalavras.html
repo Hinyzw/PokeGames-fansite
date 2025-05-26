@@ -7,17 +7,37 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/estilo.css">
     <style>
-
+        .pokemon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
         
         .frases-container {
             margin: 30px 0;
-            text-align: left;
-            display: inline-block;
+            width: 100%;
         }
         
         .frase {
-            margin: 15px 0;
-            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            margin: 15px auto;
+            max-width: 600px;
+        }
+        
+        .frase img {
+            width: 100px;
+            margin-right: 30px;
+            object-fit: contain;
+        }
+        
+        .frase-text {
+            flex: 1;
+            text-align: left;
         }
         
         .frase strong {
@@ -76,11 +96,11 @@
         <h4>Troque uma palavra dos títulos Pokémon e veja o que acontece</h4>
         
         <div class="frases-container">
-            <div class="frase">Pokémon: <strong>Detetive</strong> Pikachu</div>
-            <div class="frase">Pokémon <strong>Índigo</strong>: A Série</div>
-            <div class="frase">Pokémon: <strong>Jirachi</strong> - O Fazedor de Desejos</div>
-            <div class="frase">Pokémon: O <strong>Filme</strong></div>
-            <div class="frase">Pokémon: <strong>Mewtwo</strong> Contra-Ataca</div>
+            <div class="frase"><img src="IMGs/poster/detetivepikachu.jpg" alt="" style="width: 20%;">Pokémon: <strong>Detetive</strong> Pikachu</div>
+            <div class="frase"><img src="IMGs/poster/pokemonindigo.jpg" alt="" style="width: 20%;">Pokémon <strong>Índigo</strong>: A Série</div>
+            <div class="frase"><img src="IMGs/poster/pokemonjirachi.webp" alt="" style="width: 20%;">Pokémon: <strong>Jirachi</strong> - O Fazedor de Desejos</div>
+            <div class="frase"><img src="IMGs/poster/pokemonofilme.jpg" alt="" style="width: 20%;">Pokémon: O <strong>Filme</strong></div>
+            <div class="frase"><img src="IMGs/poster/mewtwocontraataca.webp" alt="" style="width: 20%;">Pokémon: <strong>Mewtwo</strong> Contra-Ataca</div>
         </div>
         
         <div>

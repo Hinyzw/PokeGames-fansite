@@ -4,6 +4,47 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'PokemonSolid';
+    src: url('../fonts/Pokemon Solid.ttf') format('truetype');
+}
+
+/* Aplica a fonte aumentada em TODOS os elementos */
+* {
+    font-family: 'PokemonSolid', sans-serif;
+    color: #ffcb05;
+    font-size: 18px; /* Tamanho base aumentado (era ~16px) */
+}
+
+/* Cabeçalhos maiores e mais destacados */
+h1, h2, h3{
+    font-family: 'PokemonSolid', sans-serif;
+    color: #ffcb05;
+    -webkit-text-stroke: 1px #2c70b7; /* Borda mais espessa */
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3.5em; /* ~56px (era ~2.5em/40px) */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.8em; /* ~45px */
+}
+
+/* Textos longos mais legíveis */
+p, span, a {
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+    font-size: 1.1em; /* ~20px */
+}
+
+/* Botões e elementos interativos */
+button, .btn {
+    font-size: 1.3em; /* ~23px */
+    -webkit-text-stroke: 1px #2c70b7;
+}
 header {
     width: 100%;
     padding: 20px;

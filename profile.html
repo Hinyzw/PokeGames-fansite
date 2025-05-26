@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Treinador - Pokémon Games</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .profile-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffcb05;
+            padding-bottom: 20px;
+        }
+        
+        .trainer-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #3d7dca;
+        }
+        
+        .trainer-info h2 {
+            color: #3d7dca;
+            margin-bottom: 5px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcb05;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="IMGs/logo.png" alt="Pokémon Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="jogodaforca.html">Jogo da Forca</a></li>
+                <li><a href="jogodavelha.html">Jogo da Velha</a></li>
+                <li><a href="trocapalavras.html">Jogo do Troca Palavras</a></li>
+                <li><a href="qualeessepokemon.html">Qual é esse pokémon?</a></li>
+            </ul>
+        </nav>
+        <a href="profile.html" id="profile-link">
+            <img id="profile-icon" src="IMGs/perfil.png" alt="Perfil">
+        </a>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img id="profile-trainer-image" src="IMGs/perfil.png" alt="Treinador" class="trainer-image">
+            <div class="trainer-info">
+                <h2 id="profile-username">Treinador Pokémon</h2>
+                <p id="profile-trainer-name">Nenhum treinador selecionado</p>
+            </div>
+        </div>
+        
+        <h3>Estatísticas</h3>
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Pontuação Total</h3>
+                <div class="stat-value" id="total-score">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Jogos Jogados</h3>
+                <div class="stat-value" id="games-played">0</div>
+            </div>
+        </div>
+        
+        <button class="logout-btn" onclick="logout()">Sair</button>
+    </div>
+
+    <footer>
+        <img src="IMGs/logo-footer.png" alt=""> 
+        <div class="sobrenos">
+            <h4>Sobre nós</h4>
+            <p>Este é um fan site criado por fãs, para fãs de Pokémon! Aqui você encontra jogos temáticos e divertidos inspirados no universo Pokémon.</p>
+        </div>
+        <div class="redessociais">
+            <h4>Redes Sociais</h4>
+            <div class="redesocial"><img src="IMGs/facebook.png" alt=""><p>Facebook</p></div> <br>
+            <div class="redesocial"><img src="IMGs/tiktok.png" alt=""><p>TikTok</p></div><br>
+            <div class="redesocial"><img src="IMGs/instagram.png" alt=""> <p>Instagram</p></div>
+        </div>
+    </footer>
+
+    <script src="Scripts/auth.js"></script>
+    <script>
+        // Carrega as informações do perfil quando a página é aberta
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const username = localStorage.getItem('username');
+            
+            if (!isLoggedIn || !username) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const user = users.find(u => u.username === username);
+            
+            if (user) {
+                document.getElementById('profile-username').textContent = user.username;
+                document.getElementById('total-score').textContent = user.score || 0;
+                document.getElementById('games-played').textContent = user.gamesPlayed || 0;
+                
+                if (user.selectedTrainer) {
+                    document.getElementById('profile-trainer-name').textContent = user.selectedTrainer;
+                }
+                
+                if (user.selectedTrainerImage) {
+                    document.getElementById('profile-trainer-image').src = user.selectedTrainerImage;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

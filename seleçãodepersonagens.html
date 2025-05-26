@@ -7,6 +7,11 @@
     
     <link rel="stylesheet" href="styles/treinadores.css">
     <link rel="stylesheet" href="styles/global.css">
+    <style>
+        body{
+            color: black;
+        }   
+    </style>
 </head>
 <body>
     <header>
@@ -151,6 +156,15 @@
 
     <script src="Scripts/perfil.js"></script>
     <script>
+
+        function selectTrainer(trainerName, trainerImage) {
+  authSystem.updateUser({
+    selectedTrainer: trainerName,
+    selectedTrainerImage: trainerImage
+  });
+  updateProfileIcon(); // Atualiza visualmente
+}
+
         let selectedTrainer = null;
 const trainerImages = {
     'Lance': 'IMGs/treinadores/lance.png',
@@ -172,18 +186,37 @@ function selectTrainer(card, trainerName) {
     card.classList.add('selected');
     selectedTrainer = trainerName;
 }
-
 function confirmSelection() {
     if (selectedTrainer) {
-        // Salva no localStorage
+        // Salva no localStorage geral
         localStorage.setItem('selectedTrainer', selectedTrainer);
         localStorage.setItem('selectedTrainerImage', trainerImages[selectedTrainer]);
+        
+        // Se estiver logado, salva também no perfil do usuário
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const username = localStorage.getItem('username');
+        
+        if (isLoggedIn && username) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const userIndex = users.findIndex(u => u.username === username);
+            
+            if (userIndex !== -1) {
+                users[userIndex].selectedTrainer = selectedTrainer;
+                users[userIndex].selectedTrainerImage = trainerImages[selectedTrainer];
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                // Atualiza também no localStorage do usuário atual
+                localStorage.setItem('userTrainer', selectedTrainer);
+                localStorage.setItem('userTrainerImage', trainerImages[selectedTrainer]);
+            }
+        }
         
         // Atualiza o ícone imediatamente
         updateProfileIcon();
         
         // Feedback ao usuário
         alert(`${selectedTrainer} foi selecionado! O ícone foi atualizado.`);
+        window.location.href = 'index.html';
     } else {
         alert('Por favor, selecione um treinador antes de confirmar.');
     }

@@ -18,7 +18,7 @@ body {
 }
 
 h1 {
-    color: #ff3333;
+    color: #fffc33;
     text-shadow: 3px 3px #3b4cca;
     font-size: 2.5em;
 }
@@ -142,39 +142,10 @@ h1 {
     box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
 }
 
-/* Detalhe interno do círculo */
-.pikachu-o::before {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 3px dashed #FFCC00;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.6;
-}
-
-/* Ícone de raio */
-.pikachu-o::after {
-    content: "";
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png') no-repeat center center;
-    background-size: 50px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    image-rendering: pixelated;
-    filter: drop-shadow(0 0 2px #ffcc00);
-}
-
-/* Pikachu como bolinha (O) */
+/* Container do Pikachu (O) */
 .pikachu-o {
-    width: 100px;
-    height: 100px;
+    width: 120px;  /* Aumentei para combinar com o Charmander */
+    height: 120px;
     border-radius: 50%;
     border: 5px solid #FFCC00;
     background-color: transparent;
@@ -183,69 +154,62 @@ h1 {
     box-shadow: 0 0 10px #FFCC00;
 }
 
-/* Mini Pikachu dentro do círculo */
+/* Mini Pikachu dentro do círculo (aumentado) */
 .pikachu-o img {
-    width: 50px;
-    height: 50px;
+    width: 80px;  /* Aumentei de 50px para 80px */
+    height: 80px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     image-rendering: pixelated;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
 }
 
-/* Charmander como X (Xis) */
+/* Detalhe interno do círculo (ajustado proporcionalmente) */
+.pikachu-o::before {
+    content: "";
+    position: absolute;
+    width: 85px;  /* Aumentei */
+    height: 85px;
+    border-radius: 50%;
+    border: 3px dashed #FFCC00;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+}
+
+/* Container do Charmander (X simplificado) */
 .charmander-x {
-    width: 100px;
-    height: 100px;
+    width: 120px;  /* Aumentei o container */
+    height: 120px;
     position: relative;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* X pontilhado */
+/* Xis pontilhado (fundo - aumentado proporcionalmente) */
 .charmander-x::before {
     content: "";
     position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
+    width: 90%;  /* Aumentei a área do X */
+    height: 90%;
     background: 
-        linear-gradient(to bottom right, 
-            transparent 45%, 
-            #FF6A00 45%, 
-            #FF6A00 55%, 
-            transparent 55%),
-        linear-gradient(to top right, 
-            transparent 45%, 
-            #FF6A00 45%, 
-            #FF6A00 55%, 
-            transparent 55%);
+        linear-gradient(to bottom right, transparent 45%, #FF6A00 45%, #FF6A00 55%, transparent 55%),
+        linear-gradient(to top right, transparent 45%, #FF6A00 45%, #FF6A00 55%, transparent 55%);
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.7;
-    z-index: 0;
 }
 
-/* Foguinho em cima */
-.charmander-x::after {
-    content: "🔥";
-    position: absolute;
-    font-size: 20px;
-    color: #FF6A00;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    filter: drop-shadow(0 0 2px #FF3300);
-}
-
-/* Charmander centralizado */
+/* Imagem do Charmander (aumentada) */
 .charmander-x img {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 80px;  /* Aumentei o tamanho */
+    height: 80px;
     image-rendering: pixelated;
+    position: relative;
+    z-index: 1;  /* Garante que fique acima do X */
 }

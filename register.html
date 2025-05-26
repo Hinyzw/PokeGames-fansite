@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Pokémon Games</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/estilo.css">
+    <style>
+        .register-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .register-container h1 {
+            color: #ffcb05;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #3d7dca;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .register-btn {
+            background-color: #3d7dca;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .register-btn:hover {
+            background-color: #2a5d9e;
+        }
+        
+        .login-link {
+            margin-top: 20px;
+            display: block;
+            color: #3d7dca;
+            text-decoration: none;
+        }
+        
+        .login-link:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="IMGs/logo.png" alt="Pokémon Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="jogodaforca.html">Jogo da Forca</a></li>
+                <li><a href="jogodavelha.html">Jogo da Velha</a></li>
+                <li><a href="trocapalavras.html">Jogo do Troca Palavras</a></li>
+                <li><a href="qualeessepokemon.html">Qual é esse pokémon?</a></li>
+            </ul>
+        </nav>
+        <a href="seleçãodepersonagens.html" id="profile-link">
+            <img id="profile-icon" src="IMGs/perfil.png" alt="Perfil">
+        </a>
+    </header>
+
+    <div class="register-container">
+        <h3>Torne-se um Treinador Pokémon</h3>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="reg-username">Nome de Treinador</label>
+                <input type="text" id="reg-username" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-password">Senha</label>
+                <input type="password" id="reg-password" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-confirm-password">Confirmar Senha</label>
+                <input type="password" id="reg-confirm-password" required>
+            </div>
+            <button type="submit" class="register-btn">Registrar</button>
+            <div id="reg-errorMessage" class="error-message"></div>
+            <a href="login.html" class="login-link">Já tem uma conta? Faça login</a>
+        </form>
+    </div>
+
+    <footer>
+        <img src="IMGs/logo-footer.png" alt=""> 
+        <div class="sobrenos">
+            <h4>Sobre nós</h4>
+            <p>Este é um fan site criado por fãs, para fãs de Pokémon! Aqui você encontra jogos temáticos e divertidos inspirados no universo Pokémon.</p>
+        </div>
+        <div class="redessociais">
+            <h4>Redes Sociais</h4>
+            <div class="redesocial"><img src="IMGs/facebook.png" alt=""><p>Facebook</p></div> <br>
+            <div class="redesocial"><img src="IMGs/tiktok.png" alt=""><p>TikTok</p></div><br>
+            <div class="redesocial"><img src="IMGs/instagram.png" alt=""> <p>Instagram</p></div>
+        </div>
+    </footer>
+
+    <script src="Scripts/auth.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const result = authSystem.register({
+    username: document.getElementById('reg-username').value,
+    password: document.getElementById('reg-password').value,
+    email: document.getElementById('reg-email').value,
+    selectedTrainer: null,
+    score: 0
+  });
+
+  if (result.success) {
+    alert('Conta criada! Faça login.');
+    window.location.href = 'login.html';
+  } else {
+    alert(result.message);
+  }
+});
+    </script>
+</body>
+</html>

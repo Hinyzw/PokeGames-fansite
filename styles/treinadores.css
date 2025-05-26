@@ -57,7 +57,7 @@
     width: 200px;
     margin: 30px auto;
     padding: 12px;
-    background-color: #e3350d;
+    background-color: #1b0de3;
     color: white;
     border: none;
     border-radius: 5px;
@@ -67,7 +67,9 @@
 }
 
 .selection-button:hover {
-    background-color: #c22e0b;
+    background-color: #100781;
+    color: rgb(214, 230, 2);
+    -webkit-text-stroke: 0px; /* Borda mais espessa */
 }
 
 h1 {
