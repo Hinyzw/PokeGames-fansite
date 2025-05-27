@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção De Treinadores</title>
+    
+    <link rel="stylesheet" href="styles/treinadores.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        body{
+            color: black;
+        }   
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="IMGs/logo.png" alt="Pokémon Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="jogodaforca.html">Jogo da Forca</a></li>
+                <li><a href="jogodavelha.html">Jogo da Velha</a></li>
+                <li><a href="trocapalavras.html">Jogo do Troca Palavras</a></li>
+                <li><a href="qualeessepokemon.html">Qual é esse pokémon?</a></li>
+            </ul>
+        </nav>
+        
+ 
+        <a href="seleçãodepersonagens.html" id="profile-link">
+            <img id="profile-icon" src="IMGs/perfil.png" alt="Perfil">
+        </a>
+    </header>
+
+    <main>
+        <h1>Personagens e Treinadores</h1>
+        <p class="description">Escolha seu treinador favorito para personalizar sua experiência nos jogos. Cada treinador vem com um conjunto único de Pokémon iniciais e um estilo de batalha característico.</p>
+        
+        <div class="trainer-selection">
+            <!-- Lance -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Lance')">
+                <img src="IMGs/treinadores/lance.png" alt="Lance" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Lance</div>
+                    <div class="trainer-region">Kanto</div>
+                </div>
+            </div>
+            
+            <!-- Blue -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Blue')">
+                <img src="IMGs/treinadores/blue.png" alt="Blue" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Blue</div>
+                    <div class="trainer-region">Kanto</div>
+                </div>
+            </div>
+            
+            <!-- Cynthia -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Cynthia')">
+                <img src="IMGs/treinadores/cynthia.png" alt="Cynthia" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Cynthia</div>
+                    <div class="trainer-region">Sinnoh</div>
+                </div>
+            </div>
+            
+            <!-- Volo -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Volo')">
+                <img src="IMGs/treinadores/Volo.png" alt="Volo" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Volo</div>
+                    <div class="trainer-region">Hisui</div>
+                </div>
+            </div>
+            
+            <!-- Alder -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Alder')">
+                <img src="IMGs/treinadores/alder.jpg" alt="Alder" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Alder</div>
+                    <div class="trainer-region">unova</div>
+                </div>
+            </div>
+            
+            <!-- Iris -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Iris')">
+                <img src="IMGs/treinadores/iria.gif" alt="Iris" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Iris</div>
+                    <div class="trainer-region">Unova</div>
+                </div>
+            </div>
+            
+            <!-- N -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'N')">
+                <img src="IMGs/treinadores/N.png" alt="N" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">N</div>
+                    <div class="trainer-region">Unova</div>
+                </div>
+            </div>
+            
+            <!-- Diantha -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Diantha')">
+                <img src="IMGs/treinadores/diantha.png" alt="Diantha" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Diantha</div>
+                    <div class="trainer-region">Kalos</div>
+                </div>
+            </div>
+
+            <!-- Lusamine -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Lusamine')">
+                <img src="IMGs/treinadores/lusamine.png" alt="Lusamine" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Lusamine</div>
+                    <div class="trainer-region">Alola</div>
+                </div>
+            </div>
+
+            <!-- Guzma -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Guzma')">
+                <img src="IMGs/treinadores/guzma.png" alt="Guzma" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Guzma</div>
+                    <div class="trainer-region">Alola</div>
+                </div>
+            </div>
+
+            <!-- Leon -->
+            <div class="trainer-card" onclick="selectTrainer(this, 'Leon')">
+                <img src="IMGs/treinadores/leon.png" alt="Leon" class="trainer-image">
+                <div class="trainer-info">
+                    <div class="trainer-name">Leon</div>
+                    <div class="trainer-region">Galar</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="selection-button" onclick="confirmSelection()">Confirmar Seleção</button>
+    </main>
+
+    <footer>
+        <img src="IMGs/logo-footer.png" alt="Pokémon Logo"> 
+        <div class="sobrenos">
+            <h4>Sobre nós</h4>
+            <p>Este é um fan site criado por fãs, para fãs de Pokémon! Aqui você encontra jogos temáticos e divertidos inspirados no universo Pokémon, como o Jogo da Forca, Quem é Esse Pokémon?, Jogo da Velha e o Troca Palavras.</p>
+        </div>
+
+        <div class="redessociais">
+            <h4>Redes Sociais</h4>
+            <div class="redesocial"><img src="IMGs/facebook.png" alt=""><p>Facebook</p></div> <br>
+            <div class="redesocial"><img src="IMGs/tiktok.png" alt=""><p>TikTok</p></div><br>
+            <div class="redesocial"><img src="IMGs/instagram.png" alt=""> <p>Instagram</p></div>
+        </div>
+    </footer>
+
+    <script src="Scripts/perfil.js"></script>
+    <script>
+
+        function selectTrainer(trainerName, trainerImage) {
+  authSystem.updateUser({
+    selectedTrainer: trainerName,
+    selectedTrainerImage: trainerImage
+  });
+  updateProfileIcon(); // Atualiza visualmente
+}
+
+        let selectedTrainer = null;
+const trainerImages = {
+    'Lance': 'IMGs/treinadores/lance.png',
+    'Blue': 'IMGs/treinadores/blue.png',
+    'Cynthia': 'IMGs/treinadores/cynthia.png',
+    'Volo': 'IMGs/treinadores/Volo.png',
+    'Alder': 'IMGs/treinadores/alder.jpg',
+    'Iris': 'IMGs/treinadores/iria.gif',
+    'N': 'IMGs/treinadores/N.png',
+    'Diantha': 'IMGs/treinadores/diantha.png',
+    'Lusamine': 'IMGs/treinadores/lusamine.png',
+    'Guzma': 'IMGs/treinadores/guzma.png',
+    'Leon': 'IMGs/treinadores/leon.png'
+};
+
+function selectTrainer(card, trainerName) {
+    const allCards = document.querySelectorAll('.trainer-card');
+    allCards.forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    selectedTrainer = trainerName;
+}
+function confirmSelection() {
+    if (selectedTrainer) {
+        // Salva no localStorage geral
+        localStorage.setItem('selectedTrainer', selectedTrainer);
+        localStorage.setItem('selectedTrainerImage', trainerImages[selectedTrainer]);
+        
+        // Se estiver logado, salva também no perfil do usuário
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const username = localStorage.getItem('username');
+        
+        if (isLoggedIn && username) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const userIndex = users.findIndex(u => u.username === username);
+            
+            if (userIndex !== -1) {
+                users[userIndex].selectedTrainer = selectedTrainer;
+                users[userIndex].selectedTrainerImage = trainerImages[selectedTrainer];
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                // Atualiza também no localStorage do usuário atual
+                localStorage.setItem('userTrainer', selectedTrainer);
+                localStorage.setItem('userTrainerImage', trainerImages[selectedTrainer]);
+            }
+        }
+        
+        // Atualiza o ícone imediatamente
+        updateProfileIcon();
+        
+        // Feedback ao usuário
+        alert(`${selectedTrainer} foi selecionado! O ícone foi atualizado.`);
+        window.location.href = 'index.html';
+    } else {
+        alert('Por favor, selecione um treinador antes de confirmar.');
+    }
+}
+
+// Função para atualizar o ícone do perfil
+function updateProfileIcon() {
+    const savedTrainer = localStorage.getItem('selectedTrainer');
+    const savedImage = localStorage.getItem('selectedTrainerImage');
+    
+    if (savedTrainer && savedImage) {
+        document.getElementById('profile-icon').src = savedImage;
+    }
+}
+
+// Atualiza o ícone quando a página carrega
+document.addEventListener('DOMContentLoaded', updateProfileIcon);
+    </script>
+</body>
+</html>

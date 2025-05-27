@@ -1,0 +1,90 @@
+
+ 
+
+#forca-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    height: 250px;
+}
+
+#forca-imagem {
+    max-width: 200px;
+    max-height: 250px;
+}
+
+#palavra-secreta {
+    font-size: 2em;
+    letter-spacing: 10px;
+    text-align: center;
+    margin: 20px 0;
+    min-height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#dica {
+    text-align: center;
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+#mensagem {
+    text-align: center;
+    font-size: 1.5em; /* Tamanho aumentado para legibilidade */
+    font-weight: bold;
+    min-height: 30px;
+    margin: 15px 0;
+    color: #ffcb05 !important;
+    -webkit-text-stroke: 1px #2c70b7; /* Borda azul */
+    padding: 8px;
+}
+
+.teclado {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.teclado input[type="button"] {
+    width: 40px;
+    margin: 2px;
+    font-weight: bold;
+    background-color: #ffcb05;
+    border: 2px solid #2c72b8;
+    border-radius: 5px;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.teclado input[type="button"]:hover {
+    background-color: #ffde59;
+}
+
+.teclado input[type="button"]:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    border-color: #999999;
+    cursor: not-allowed;
+}
+
+#reiniciar {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reiniciar:hover {
+    background-color: #cc0011;
+}

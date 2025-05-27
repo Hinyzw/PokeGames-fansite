@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Games</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="IMGs/logo.png" alt="Pokémon Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="jogodaforca.html">Jogo da Forca</a></li>
+                <li><a href="jogodavelha.html">Jogo da Velha</a></li>
+                <li><a href="trocapalavras.html">Jogo do Troca Palavras</a></li>
+                <li><a href="qualeessepokemon.html">Qual é esse pokémon?</a></li>
+            </ul>
+        </nav>
+        <a href="profile.html" id="profile-link">
+            <img id="profile-icon" src="IMGs/perfil.png" alt="Perfil">
+        </a>
+    </header>
+
+    <main>
+        <h1 style="color: gold;">Quem você escolhe?</h1>
+        
+        <!-- Containers dos Pokémon inicialmente escondidos -->
+        <div id="bulbasaur-container" class="pokemon-container" style="display: none;">
+            <div class="pokemon">
+                <img src="IMGs/bulbasaur-spritefh.png" alt="Bulbasaur">
+                <div class="texto">
+                    <h3>Bulbasaur</h3>
+                    <p>Bulbasaur, o Pokémon Semente. Carrega uma planta em suas costas desde o nascimento. A planta cresce e absorve nutrientes à medida que Bulbasaur evolui.</p>
+                    <button class="escolher-btn" data-pokemon="bulbasaur"><img src="IMGs/pokeball.png" alt="">Escolher</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="charmander-container" class="pokemon-container" style="display: none;">
+            <div class="pokemon">
+                <img src="IMGs/charmander-spritefh2.png" alt="Charmander" width="300vh">
+                <div class="texto">
+                    <h3>Charmander</h3>
+                    <p>Charmander, o Pokémon Lagarto. A chama em sua cauda indica a força vital dele. Se a chama se apagar, o Charmander morrerá</p>
+                    <button class="escolher-btn" data-pokemon="charmander"><img src="IMGs/pokeball.png" alt="">Escolher</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="squirtle-container" class="pokemon-container" style="display: none;">
+            <div class="pokemon">
+                <img src="IMGs/squirtle-spritefh2.png" alt="Squirtle">
+                <div class="texto">
+                    <h3>Squirtle</h3>
+                    <p>Squirtle, o Pokémon Tartaruga. Ele retrai seu corpo dentro da casca dura para se defender e depois ataca com jatos de água pela boca.</p>
+                    <button class="escolher-btn" data-pokemon="squirtle"><img src="IMGs/pokeball.png" alt="">Escolher</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="iniciais">
+            <div><img src="IMGs/bulbasaur-sprite.png" alt="Bulbasaur" class="inicial-icon" data-pokemon="bulbasaur"></div>
+            <div><img src="IMGs/charmander-sprite.png" alt="Charmander" width="90px" class="inicial-icon" data-pokemon="charmander"></div>
+            <div><img src="IMGs/squirtle-sprite.png" alt="Squirtle" class="inicial-icon" data-pokemon="squirtle"></div>
+        </div>
+
+        <!-- Pokébola gigante -->
+        <div id="pokebola-gigante" class="pokebola-gigante" style="display: none;">
+            <img src="IMGs/pokeball.png" alt="Pokébola">
+        </div>
+    </main>
+
+    <footer>
+        <img src="IMGs/logo-footer.png" alt=""> 
+        <div class="sobrenos">
+            <h4>Sobre nós</h4>
+            <p>Este é um fan site criado por fãs, para fãs de Pokémon! Aqui você encontra jogos temáticos e divertidos inspirados no universo Pokémon, como o Jogo da Forca, Quem é Esse Pokémon?, Jogo da Velha e o Troca Palavras.</p>
+        </div>
+
+        <div class="redessociais">
+            <h4>Redes Sociais</h4>
+            <div class="redesocial"><img src="IMGs/facebook.png" alt=""><p>Facebook</p></div> <br>
+            <div class="redesocial"><img src="IMGs/tiktok.png" alt=""><p>TikTok</p></div><br>
+            <div class="redesocial"><img src="IMGs/instagram.png" alt=""> <p>Instagram</p></div>
+        </div>
+    </footer>
+    <script src="Scripts/perfil.js"></script>
+    <script>
+        // Mostrar container do Pokémon quando clicar nos ícones dos iniciais
+        document.querySelectorAll('.inicial-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const pokemonName = this.getAttribute('data-pokemon');
+                
+                // Esconder todos 
+                document.querySelectorAll('.pokemon-container').forEach(container => {
+                    container.style.display = 'none';
+                });
+                
+                // Mostrar só o container do Pokémon clicado
+                const container = document.getElementById(`${pokemonName}-container`);
+                if (container) {
+                    container.style.display = 'block';
+                }
+            });
+        });
+
+        // Mostrar pokébola gigante
+        document.querySelectorAll('.escolher-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const pokemonName = this.getAttribute('data-pokemon');
+                const pokebolaGigante = document.getElementById('pokebola-gigante');
+                
+                // Mostra a pokébola gigante
+                pokebolaGigante.style.display = 'block';
+                
+                // Esconde após alguns segundos
+                setTimeout(() => {
+                    pokebolaGigante.style.display = 'none';
+                }, 2000);
+                
+                console.log(`Você escolheu ${pokemonName}!`);
+            });
+        });
+    </script>
+</body>
+</html>
